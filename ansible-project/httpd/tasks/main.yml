@@ -1,0 +1,31 @@
+---
+# tasks file for httpd
+# https://github.com/Rahad-Ullah/Digital-Agency/ used this prject for Hosting the static web application 
+
+- name: Install apache httpd  (state=present is optional)
+  ansible.builtin.apt:
+      name: apache2
+      state: absent
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+      src: httpd/files/Digital-Agency/index.html
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0644"
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+      src: httpd/files/Digital-Agency/style.css
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0644"
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+      src: httpd/files/Digital-Agency/asset
+      dest: /var/www/html
+      owner: root
+      group: root
+      mode: "0644"
+
+
